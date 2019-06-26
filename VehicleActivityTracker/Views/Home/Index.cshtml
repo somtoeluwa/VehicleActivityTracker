@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Vehicle Activity Tracker</h1>
+    <p class="lead">Click the button below to get the recent activity of your vehicle</p>
+    <button class="btn btn-primary btn-lg" id="requestButton">Request data</button>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 resultBox" id="dataTable" style="display: none;">
+        <table class="table table-responsive table-striped"  id="dataContent">
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@section scripts{
+
+    <script>
+        function loadData() {
+            console.log("Loading...");
+            $.ajax({
+                type: "GET",
+                url: "/api/VehicleActivity",
+                success: function (result) {
+                    console.log("Eureka!");
+                    $table = $("#dataContent > tbody:last-child");
+                    $row = $("<tr>");
+                    $row.append("<td>" + "Activity DateTime:" + "</td>");
+                    $row.append("<td>" + result.ActivityDateTime + "</td>");
+                    $row.append("<td>" + "Latitude:" + "</td>");
+                    $row.append("<td>" + result.Latitude + "</td>");
+                    $row.append("<td>" + "Longitude:" + "</td>");
+                    $row.append("<td>" + result.Longitude + "</td>");
+                    $row.append("<td>" + "Speed:" + "</td>");
+                    $row.append("<td>" + result.Speed + "</td>");
+                    $row.append("<td>" + "Heading:" + "</td>");
+                    $row.append("<td>" + result.HDG + "</td>");
+                    $row.append("</tr>");
+                    $table.append($row)
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+
+        $("#requestButton").click(function () {
+            console.log("clicked");
+            $("#dataTable").show();
+            loadData();
+        });
+    </script>
+
+
+}

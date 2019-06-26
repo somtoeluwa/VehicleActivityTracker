@@ -1,0 +1,13 @@
+<VehicleActivity>
+  <ActivityDateTime>2018-03-08T14:00:18</ActivityDateTime>
+  <Latitude>51.3649373</Latitude>
+  <Longitude>1.2031921</Longitude>
+  <GPSValid>true</GPSValid>
+  <Location>Thanet Way (A299), Herne Bay CT6 6EZ, UK</Location>
+  <IgnitionOn>true</IgnitionOn>
+  <HDG>102</HDG>
+  <Speed>89</Speed>
+  <EventSubType>SMDP_EVENT_TIME_OR_DISTANCE</EventSubType>
+  <ODOMeter>130335.9</ODOMeter>
+  <VehicleID>d8f3bd75-4bd4-4773-aee6-1670f6ccec83</VehicleID>
+</VehicleActivity>
